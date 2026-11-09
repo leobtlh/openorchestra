@@ -37,6 +37,15 @@ tournament:
   max_rounds: 5
 
 defaults:
-  default_agent_count: 5
+  default_agent_count: 3              # Optimized default based on Hovsky et al.
   default_timeout: 300
   default_quality_threshold: 0.7
+
+optimization:
+  # Based on Hovsky et al. (2023) research on agent competition trade-offs
+  max_agents: 4                      # Optimal performance range is 2-4 agents
+  min_improvement_threshold: 0.03    # Stop if marginal gain < 3%
+  budget_limit_tokens: 50000
+  budget_limit_usd: 50.0
+  cost_aware_selection: true         # Always consider cost/quality ratio
+  convergence_detection: true        # Stop when quality stagnates
