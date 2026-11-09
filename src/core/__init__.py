@@ -6,6 +6,7 @@ from openorchestra.core.lru_cache import LRUCache
 from openorchestra.core.pattern_cluster import PatternCluster, PatternClusterManager
 from openorchestra.core.context_compressor import ContextCompressor, CompressedContext
 from openorchestra.core.hierarchical_learner import HierarchicalLearner, Lesson
+from openorchestra.core.competition_orchestrator import CompetitionOrchestrator, CompetitionResult, CompetitionConfig
 
 __all__ = [
     "SkillDetector", "SkillInfo",
@@ -15,5 +16,6 @@ __all__ = [
     "LRUCache",
     "PatternCluster", "PatternClusterManager",
     "ContextCompressor", "CompressedContext",
-    "HierarchicalLearner", "Lesson"
+    "HierarchicalLearner", "Lesson",
+    "CompetitionOrchestrator", "CompetitionResult", "CompetitionConfig"
 ]

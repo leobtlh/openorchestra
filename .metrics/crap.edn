@@ -1,11 +1,16 @@
 {:entries [
-  {:name "_get_similar_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 4, :coverage 0.0, :crap 20.0}
-  {:name "learn_from_competition", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 4, :coverage 0.0, :crap 20.0}
-  {:name "_propagate_to_global", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "_store_winning_pattern", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "get_relevant_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "_store_learning_pattern", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 2, :coverage 0.0, :crap 6.0}
-  {:name "propagate_domain_pattern", :namespace "core.hierarchical_learner", :complexity 1, :coverage 0.0, :crap 2.0}
-  {:name "__init__", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 1, :coverage 0.0, :crap 2.0}
-  {:name "_get_global_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "_launch_agents", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 9, :coverage 0.0, :crap 90.0}
+  {:name "_record_learning", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 6, :coverage 0.0, :crap 42.0}
+  {:name "run_competition", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 6, :coverage 0.0, :crap 42.0}
+  {:name "_evaluate_solutions", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 5, :coverage 0.0, :crap 30.0}
+  {:name "_select_winner", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 4, :coverage 0.0, :crap 20.0}
+  {:name "_infer_pattern_type", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "_prepare_task", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "get_competition_history", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "_get_autodev_adapter", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "_get_opencode_adapter", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "__init__", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "_create_dry_run_result", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "_estimate_cost", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_statistics", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
 ]}
