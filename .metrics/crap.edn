@@ -1,16 +1,22 @@
 {:entries [
-  {:name "_launch_agents", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 9, :coverage 0.0, :crap 90.0}
-  {:name "_record_learning", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 6, :coverage 0.0, :crap 42.0}
-  {:name "run_competition", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 6, :coverage 0.0, :crap 42.0}
-  {:name "_evaluate_solutions", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 5, :coverage 0.0, :crap 30.0}
-  {:name "_select_winner", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 4, :coverage 0.0, :crap 20.0}
-  {:name "_infer_pattern_type", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "_prepare_task", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "get_competition_history", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 3, :coverage 0.0, :crap 12.0}
-  {:name "_get_autodev_adapter", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 2, :coverage 0.0, :crap 6.0}
-  {:name "_get_opencode_adapter", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 2, :coverage 0.0, :crap 6.0}
-  {:name "__init__", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
-  {:name "_create_dry_run_result", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
-  {:name "_estimate_cost", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
-  {:name "get_statistics", :namespace "core.competition_orchestrator.CompetitionOrchestrator", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "create_agent", :namespace "core.agent_interface.AgentFactory", :complexity 4, :coverage 0.0, :crap 20.0}
+  {:name "execute", :namespace "core.agent_interface.OpenCodeAgent", :complexity 4, :coverage 0.0, :crap 20.0}
+  {:name "execute", :namespace "core.agent_interface.AutoDevAgent", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "create_pool", :namespace "core.agent_interface.AgentFactory", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "__init__", :namespace "core.agent_interface.OpenCodeAgent", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "is_healthy", :namespace "core.agent_interface.OpenCodeAgent", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "__init__", :namespace "core.agent_interface.AgentFactory", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "execute", :namespace "core.agent_interface.AgentInterface", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_id", :namespace "core.agent_interface.AgentInterface", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_state", :namespace "core.agent_interface.AgentInterface", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_type", :namespace "core.agent_interface.AgentInterface", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "is_healthy", :namespace "core.agent_interface.AgentInterface", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "__init__", :namespace "core.agent_interface.AutoDevAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_id", :namespace "core.agent_interface.AutoDevAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_state", :namespace "core.agent_interface.AutoDevAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_type", :namespace "core.agent_interface.AutoDevAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "is_healthy", :namespace "core.agent_interface.AutoDevAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_id", :namespace "core.agent_interface.OpenCodeAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_state", :namespace "core.agent_interface.OpenCodeAgent", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "get_type", :namespace "core.agent_interface.OpenCodeAgent", :complexity 1, :coverage 0.0, :crap 2.0}
 ]}
