@@ -1,1 +1,11 @@
-{:entries []}
+{:entries [
+  {:name "_get_similar_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 4, :coverage 0.0, :crap 20.0}
+  {:name "learn_from_competition", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 4, :coverage 0.0, :crap 20.0}
+  {:name "_propagate_to_global", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "_store_winning_pattern", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "get_relevant_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 3, :coverage 0.0, :crap 12.0}
+  {:name "_store_learning_pattern", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 2, :coverage 0.0, :crap 6.0}
+  {:name "propagate_domain_pattern", :namespace "core.hierarchical_learner", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "__init__", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 1, :coverage 0.0, :crap 2.0}
+  {:name "_get_global_patterns", :namespace "core.hierarchical_learner.HierarchicalLearner", :complexity 1, :coverage 0.0, :crap 2.0}
+]}
