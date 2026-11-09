@@ -1,0 +1,42 @@
+# Default competition configuration
+# This file is used as a template for new competitions
+
+general:
+  project_name: "openorchestra"
+  output_directory: "./results"
+  log_level: "INFO"
+
+skill_detection:
+  auto_detect: true
+  fallback_to_defaults: true
+  check_opencode_skills: true
+  check_plugin_directories: true
+
+memory:
+  enabled: true
+  database_path: ".openorchestra/memory.db"
+  max_patterns_per_domain: 100
+  pattern_retention_days: 30
+
+evaluation:
+  enabled: true
+  timeout_seconds: 300
+  parallel_workers: 4
+  quality_threshold: 0.7
+
+agents:
+  model_selection: "best_fit"
+  timeout_per_agent: 180
+  max_turns_per_agent: 10
+  temperature: 0.3
+
+tournament:
+  voting_strategy: "borda"
+  judge_count: 3
+  convergence_threshold: 0.05
+  max_rounds: 5
+
+defaults:
+  default_agent_count: 5
+  default_timeout: 300
+  default_quality_threshold: 0.7

@@ -1,0 +1,123 @@
+# Default competency domains for OpenOrchestra
+# Based on IEEE/SWECOM standards and industry career paths
+
+domains:
+  backend:
+    name: "Backend Development"
+    description: "Backend development, security, databases, and API design"
+    required_skills:
+      - "clean-code"
+      - "system-design"
+    default_agent_count: 5
+    evaluation_criteria:
+      - code_quality: 0.3
+      - security_standards: 0.25
+      - database_design: 0.2
+      - api_efficiency: 0.15
+      - maintainability: 0.1
+
+  frontend_ui_ux:
+    name: "Frontend Development & UI/UX"
+    description: "Frontend development, UX design, style systems, and accessibility"
+    required_skills:
+      - "ui-ux-pro-max"
+      - "design-taste-frontend"
+    default_agent_count: 5
+    evaluation_criteria:
+      - design_system_compliance: 0.35
+      - accessibility_standards: 0.25
+      - responsive_behavior: 0.2
+      - code_quality: 0.1
+      - performance: 0.1
+
+  devops_cloud:
+    name: "DevOps & Cloud"
+    description: "Infrastructure, CI/CD, orchestration, and cloud platforms"
+    required_skills:
+      - "devops-engineer"
+      - "cloud-architecture"
+    default_agent_count: 4
+    evaluation_criteria:
+      - infrastructure_efficiency: 0.3
+      - security_compliance: 0.25
+      - monitoring_coverage: 0.2
+      - deployment_reliability: 0.15
+      - cost_optimization: 0.1
+
+  security:
+    name: "Application Security"
+    description: "Application security, penetration testing, and compliance"
+    required_skills:
+      - "secure-coding"
+      - "pentesting"
+    default_agent_count: 3
+    evaluation_criteria:
+      - vulnerability_count: 0.35
+      - security_best_practices: 0.3
+      - compliance_standards: 0.2
+      - threat_modeling: 0.15
+
+  data_ml:
+    name: "Data Engineering & Machine Learning"
+    description: "Data pipelines, machine learning, and data quality"
+    required_skills:
+      - "data-engineering"
+      - "ml-engineer"
+    default_agent_count: 4
+    evaluation_criteria:
+      - pipeline_reliability: 0.3
+      - data_quality: 0.25
+      - model_accuracy: 0.25
+      - scalability: 0.2
+
+  qa_testing:
+    name: "Quality Assurance & Testing"
+    description: "Automated testing, quality assurance, and coverage analysis"
+    required_skills:
+      - "test-driven-development"
+      - "testing-strategies"
+    default_agent_count: 5
+    evaluation_criteria:
+      - test_coverage: 0.3
+      - test_quality: 0.25
+      - bug_detection_rate: 0.25
+      - automation_effectiveness: 0.2
+
+  architecture:
+    name: "System Architecture"
+    description: "System design, scalability, patterns, and technical decisions"
+    required_skills:
+      - "system-design"
+      - "architectural-patterns"
+    default_agent_count: 3
+    evaluation_criteria:
+      - scalability_design: 0.3
+      - fault_tolerance: 0.25
+      - maintainability: 0.25
+      - technology_selection: 0.2
+
+  agent_orchestration:
+    name: "Agent Orchestration"
+    description: "Multi-agent coordination, tournament management, and evaluation"
+    required_skills:
+      - "agentic-delivery"
+      - "tournament-management"
+    default_agent_count: 5
+    evaluation_criteria:
+      - competition_design: 0.3
+      - agent_specialization: 0.25
+      - evaluation_fairness: 0.25
+      - learning_effectiveness: 0.2
+
+  code_refinement:
+    name: "Code Refinement"
+    description: "Self-refinement, quality improvement, and code optimization"
+    required_skills:
+      - "clean-code"
+      - "quality-gates"
+    default_agent_count: 5
+    evaluation_criteria:
+      - quality_improvement: 0.35
+      - optimization_efficiency: 0.3
+      - consistency: 0.2
+      - maintainability_gain: 0.15
