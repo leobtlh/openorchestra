@@ -52,31 +52,51 @@ openorchestra run \
 
 OpenOrchestra supports 9 competency domains based on industry standards:
 
-| Domain | Description | Default Skills |
-|--------|-------------|----------------|
-| backend | Backend development, security, databases | clean-code |
-| frontend_ui_ux | Frontend & UI/UX design | ui-ux-pro-max |
-| devops_cloud | DevOps & cloud infrastructure | - |
-| security | Application security | secure-coding |
-| data_ml | Data engineering & ML | data-engineering |
-| qa_testing | Quality assurance & testing | test-driven-development |
-| architecture | System architecture | system-design |
-| agent_orchestration | Multi-agent coordination | agentic-delivery |
-| code_refinement | Code quality improvement | clean-code |
+| Domain | Description | Required Skills |
+|--------|-------------|-----------------|
+| `backend` | Backend development, security, databases | `clean-code`, `system-design` |
+| `frontend_ui_ux` | Frontend & UI/UX design | `ui-ux-pro-max`, `design-taste-frontend` |
+| `devops_cloud` | DevOps & cloud infrastructure | `devops-engineer`, `cloud-architecture` |
+| `security` | Application security | `secure-coding`, `pentesting` |
+| `data_ml` | Data engineering & ML | `data-engineering`, `ml-engineer` |
+| `qa_testing` | Quality assurance & testing | `test-driven-development`, `testing-strategies` |
+| `architecture` | System architecture | `system-design`, `architectural-patterns` |
+| `agent_orchestration` | Multi-agent coordination | `agentic-delivery`, `tournament-management` |
+| `code_refinement` | Code quality improvement | `clean-code`, `quality-gates` |
+
+See [DOMAINS_REFERENCE.md](DOMAINS_REFERENCE.md) for the criteria and weights of
+each domain.
 
 ## Configuration
 
-Edit `.openorchestra/config.yaml` to customize:
+Edit `.openorchestra/config.yaml` to set project defaults:
 
 ```yaml
+general:
+  output_directory: "./results"
+
+memory:
+  enabled: true
+  database_path: ".openorchestra/memory.db"
+
 evaluation:
-  timeout_seconds: 300
   quality_threshold: 0.7
 
 agents:
-  model_selection: "best_fit"
-  max_turns_per_agent: 10
+  timeout_per_agent: 300
+
+defaults:
+  default_agent_count: 3
+
+optimization:
+  max_agents: 4
+  min_improvement_threshold: 0.03
+  budget_limit_tokens: 50000
+  budget_limit_usd: 50.0
 ```
+
+`openorchestra run` reads these defaults. Explicit CLI flags such as
+`--agents`, `--timeout`, `--output`, and `--optimize` take precedence.
 
 ## Memory System
 

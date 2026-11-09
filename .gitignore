@@ -96,3 +96,7 @@ dmypy.json
 *.log
 *.tmp
 .session
+
+# Tool and test artifacts
+.state/
+target/

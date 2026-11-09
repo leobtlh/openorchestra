@@ -57,9 +57,9 @@ domains:
       - "design-taste-frontend"
     default_agent_count: 5
     evaluation_criteria:
-      - design_system_compliance: 0.4
-      - accessibility_standards: 0.3
-      - responsive_behavior: 0.3
+      design_system_compliance: 0.4
+      accessibility_standards: 0.3
+      responsive_behavior: 0.3
 ```
 
 ## Competency Domains
@@ -81,37 +81,48 @@ OpenOrchestra supports 9 primary domains based on IEEE/SWECOM standards:
 ```
 openorchestra/
 ├── src/
-│   ├── __init__.py
-│   ├── cli/                    # Command-line interface
-│   │   └── main.py             # CLI entry point
-│   ├── core/                   # Core components
-│   │   ├── __init__.py
-│   │   ├── domain_manager.py   # Competency domain management
-│   │   └── skill_detector.py   # Automatic skill detection
-│   ├── domains/                # Competency domains
-│   │   └── __init__.py
-│   ├── evaluators/             # Evaluation system
-│   │   └── quality_evaluator.py
-│   ├── integrations/           # External tool adapters
-│   │   ├── opencode_adapter.py
-│   │   ├── autodev_adapter.py
-│   │   └── agent_arena_bridge.py
-│   ├── memory/                 # Persistent learning
-│   │   └── competition_memory.py
-│   ├── skills/                 # Skill templates
-│   │   └── __init__.py
-│   └── utils/                  # Utility functions
-│       └── __init__.py
-├── configs/
-│   ├── __init__.py
-│   ├── default_domains.yaml    # Domain definitions
-│   └── default_competition_config.yaml
+│   └── openorchestra/          # Installable package
+│       ├── __init__.py
+│       ├── py.typed            # PEP 561 marker
+│       ├── cli/                # Command-line interface
+│       │   └── main.py         # CLI entry point
+│       ├── configs/            # Packaged YAML configuration
+│       │   ├── default_domains.yaml
+│       │   └── default_competition_config.yaml
+│       ├── core/               # Orchestration and learning
+│       │   ├── competition_orchestrator.py
+│       │   ├── config.py       # Project configuration loader
+│       │   ├── domain_manager.py
+│       │   ├── skill_detector.py
+│       │   ├── agent_interface.py
+│       │   ├── agent_pool.py
+│       │   ├── optimizer.py
+│       │   ├── lru_cache.py
+│       │   ├── pattern_signature.py
+│       │   ├── pattern_cluster.py
+│       │   ├── context_compressor.py
+│       │   └── hierarchical_learner.py
+│       ├── domains/            # Competency domain package
+│       ├── evaluators/         # Evaluation system
+│       │   └── quality_evaluator.py
+│       ├── integrations/       # External tool adapters
+│       │   ├── opencode_adapter.py
+│       │   ├── autodev_adapter.py
+│       │   ├── agent_arena_bridge.py
+│       │   └── process.py      # External command probing
+│       ├── memory/             # Persistent learning
+│       │   └── competition_memory.py
+│       ├── skills/             # Skill definitions
+│       └── utils/              # Utility functions
 ├── docs/
 │   ├── ARCHITECTURE.md         # Detailed architecture
-│   └── GETTING_STARTED.md      # Quick start guide
+│   ├── DOMAINS_REFERENCE.md    # Domain and criteria reference
+│   ├── DEVELOPMENT.md          # Developer extension guide
+│   ├── GETTING_STARTED.md      # Quick start guide
+│   └── MEMORY_OPTIMIZATION.md  # Memory design notes
 ├── examples/
+│   └── basic_competition.py
 ├── tests/
-│   └── __init__.py
 ├── README.md
 ├── CONTRIBUTING.md
 └── pyproject.toml
@@ -122,16 +133,29 @@ openorchestra/
 The system maintains learned lessons in a local database:
 
 ```python
+from openorchestra.memory import CompetitionMemory
+
+memory = CompetitionMemory()
+
 # After each competition
-memory.record_outcome(
+memory.record_competition_outcome(
     domain="frontend_ui_ux",
-    agent_id="ux_agent_2",
-    solution="code_solution_123",
-    score=8.5,
-    errors=["accessibility_issue_456"]
+    agent_count=3,
+    winner_agent="ux_agent_2",
+    best_score=0.85,
+    total_cost_usd=0.12,
 )
 
-# Use these knowledge for future competitions
+# Store a reusable technical pattern
+memory.record_pattern(
+    domain="frontend_ui_ux",
+    pattern_type="accessibility",
+    description="Missing focus styles on interactive elements",
+    solution="Add :focus-visible styles and keyboard navigation",
+    confidence=0.9,
+)
+
+# Use this knowledge for future competitions
 improved_prompt = memory.get_context_knowledge(domain="frontend_ui_ux")
 ```
 
@@ -181,15 +205,18 @@ Where `k = 0.7` (saturation factor) and `n` is the agent count.
 
 ### Key Findings from Hovsky et al.
 
-| Agents | Performance Gain | Cost Increase | Cost/Quality Ratio |
-|--------|------------------|---------------|-------------------|
-| 1 | 50% | 1x | 1.00 |
-| 2 | 82% | 2x | 1.74 |
-| 3 | 93% | 3x | 2.40 |
-| 4 | 96% | 4x | 3.08 |
-| 5 | 98% | 5x | 3.79 |
+| Agents | Performance Gain | Cost Increase | Gain per Cost Unit |
+|--------|------------------|---------------|--------------------|
+| 1 | 50.0% | 1x | 0.500 |
+| 2 | 66.8% | 2x | 0.334 |
+| 3 | 80.2% | 3x | 0.267 |
+| 4 | 89.1% | 4x | 0.223 |
+| 5 | 94.3% | 5x | 0.189 |
 
 **Optimal Range: 2-4 agents** (sweet spot for cost/quality trade-off)
+
+The values above come directly from the saturation curve with `k = 0.7`; the
+optimizer exposes the same calculation as `estimate_performance_gain(n)`.
 
 ### Dynamic Agent Allocation
 
@@ -242,10 +269,11 @@ optimization:
 
 ## Documentation
 
-- Getting started guide: docs/GETTING_STARTED.md
-- Detailed architecture: docs/ARCHITECTURE.md
-- Developer extension guide: docs/DEVELOPMENT.md
-- Domain reference: docs/DOMAINS_REFERENCE.md
+- [Getting started guide](docs/GETTING_STARTED.md)
+- [Detailed architecture](docs/ARCHITECTURE.md)
+- [Developer extension guide](docs/DEVELOPMENT.md)
+- [Domain reference](docs/DOMAINS_REFERENCE.md)
+- [Memory optimization](docs/MEMORY_OPTIMIZATION.md)
 
 ## License
 
