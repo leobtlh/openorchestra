@@ -75,13 +75,13 @@ Where k = 0.7 (saturation factor)
 ```
 
 **Findings:**
-| Agents | Gain | Cost Ratio | Efficiency |
-|--------|------|------------|------------|
-| 1 | 50% | 1.00 | Baseline |
-| 2 | 82% | 1.74 | Good |
-| 3 | 93% | 2.40 | Optimal |
-| 4 | 96% | 3.08 | Acceptable |
-| 5 | 98% | 3.79 | Diminishing returns |
+| Agents | Gain | Cost Increase | Gain per Cost Unit | Assessment |
+|--------|------|---------------|--------------------|------------|
+| 1 | 50.0% | 1x | 0.500 | Baseline |
+| 2 | 66.8% | 2x | 0.334 | Good |
+| 3 | 80.2% | 3x | 0.267 | Optimal |
+| 4 | 89.1% | 4x | 0.223 | Acceptable |
+| 5 | 94.3% | 5x | 0.189 | Diminishing returns |
 
 ### Competency Domains
 Based on IEEE/SWECOM standards for software engineering competencies.

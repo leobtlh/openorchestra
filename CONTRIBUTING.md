@@ -65,22 +65,16 @@ mypy src/
 
 ## Architectural Patterns
 
-### Domain Modules
+### Domain Definitions
 
-Each domain follows this structure:
+Built-in domains are declarative YAML entries in
+`src/openorchestra/configs/default_domains.yaml`. A domain lists its name,
+description, required skills, default agent count, and weighted evaluation
+criteria. Project-specific domains are created with `openorchestra
+create-domain` and stored in `.openorchestra/domains.yaml`.
 
-```python
-# src/domains/backend/
-├── __init__.py        # Domain configuration
-├── agents/             # Specialist agents
-│   ├── api_builder.py
-│   ├── database_designer.py
-│   └── security_analyzer.py
-├── evaluators/         # Domain-specific evaluation
-│   └── code_quality.py
-└── presets/            # Default configurations
-    └── default.yaml
-```
+See [docs/DOMAINS_REFERENCE.md](docs/DOMAINS_REFERENCE.md) for the schema and
+the full list of built-in domains.
 
 ### Skill Integration
 
@@ -101,7 +95,13 @@ Use the memory system for learning:
 from openorchestra.memory.competition_memory import CompetitionMemory
 
 memory = CompetitionMemory()
-memory.record_pattern(domain="backend", pattern_solution="...")
+memory.record_pattern(
+    domain="backend",
+    pattern_type="security",
+    description="SQL injection vulnerability",
+    solution="Use parameterized queries instead of string concatenation",
+    confidence=0.9,
+)
 ```
 
 ## Questions?

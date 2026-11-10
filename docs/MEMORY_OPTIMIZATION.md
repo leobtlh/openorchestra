@@ -116,7 +116,8 @@ Clusters reduce storage by grouping similar solutions.
 ## Usage
 
 ```python
-from openorchestra.core import CompetitionMemory, PatternSignature
+from openorchestra.core import PatternSignature
+from openorchestra.memory import CompetitionMemory
 
 memory = CompetitionMemory()
 
